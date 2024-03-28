@@ -1,27 +1,27 @@
-import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { GeistSans } from "geist/font/sans";
 import "./globals.css";
 
-const inter = Inter({ subsets: ["latin"] });
+const defaultUrl = process.env.VERCEL_URL
+  ? `https://${process.env.VERCEL_URL}`
+  : "http://localhost:3000";
 
-export const metadata: Metadata = {
-  title: "Chug - The Ultimate Party Challenge Game",
-  description: "Dive into 'Chug', a thrilling party game where every choice might lead you to cheers or challenges. Perfect for livening up gatherings, 'Chug' tests your luck and bravery. Ready for an unforgettable party experience? Play 'Chug' now.",
+export const metadata = {
+  metadataBase: new URL(defaultUrl),
+  title: "Next.js and Supabase Starter Kit",
+  description: "The fastest way to build apps with Next.js and Supabase",
 };
 
 export default function RootLayout({
   children,
-}: Readonly<{
+}: {
   children: React.ReactNode;
-}>) {
+}) {
   return (
-    <html lang="en">
-      <body className={
-        inter.className +
-        " bg-gradient-to-r from-red-500 to-orange-500" +
-        " dark "
-      }>
-        {children}
+    <html lang="en" className={GeistSans.className}>
+      <body className="bg-background text-foreground">
+        <main className="min-h-screen flex flex-col items-center">
+          {children}
+        </main>
       </body>
     </html>
   );

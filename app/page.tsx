@@ -1,18 +1,15 @@
 import {Button} from "@/components/ui/button";
-import AddPlayer from "@/components/add-player";
-import PlayerList from "@/components/player-list";
 
 export default function Home() {
   return (
-      <main className="flex flex-col gap-4 justify-center items-center h-screen">
+      <main className="flex flex-col gap-10 justify-center items-center h-screen">
         <h1 className="text-8xl font-bold">
           Chug.
         </h1>
-        <Button size="lg">
-              Start
-        </Button>
-        <AddPlayer/>
-        <PlayerList />
+        <div className="flex justify-center gap-4">
+          <Button size="lg">Create</Button>
+          <Button size="lg" variant="outline">Join</Button>
+        </div>
       </main>
   );
 }

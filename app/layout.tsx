@@ -19,7 +19,7 @@ export default function RootLayout({
       <body className={
         inter.className +
         " bg-gradient-to-r from-red-500 to-orange-500" +
-        " "
+        " dark "
       }>
         {children}
       </body>

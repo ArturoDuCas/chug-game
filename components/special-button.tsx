@@ -2,7 +2,7 @@ interface SpecialButtonProps {
   text: string;
 }
 
-const SpecialButton = ({ text }: SpecialButtonProps) => {
+const SpecialButton = ({ text,  }: SpecialButtonProps) => {
   return (
         <button
             className="animate-border inline-block rounded bg-white bg-gradient-to-r from-green-500 via-purple-500 to-blue-500 bg-[length:400%_400%] p-1"

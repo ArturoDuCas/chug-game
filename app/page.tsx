@@ -10,10 +10,14 @@ export default async function Index() {
       </div>
       <div className="w-full flex justify-around items-center gap-4">
         <Link href={"/join"} className="flex-1">
-          <Button text="Join" maxWidth />
+          <Button maxWidth>
+            <span>Join</span>
+          </Button>
         </Link>
         <Link href={"/create"} className="flex-1">
-          <Button text="Create" variant="outlined" maxWidth />
+          <Button variant="outlined" maxWidth >
+            <span>Create</span>
+          </Button>
         </Link>
       </div>
     </div>

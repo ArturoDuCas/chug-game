@@ -1,10 +1,10 @@
 interface ButtonProps {
-  text: string;
+  children: React.ReactNode;
   variant?: "default" | "outlined";
   maxWidth?: boolean;
 }
 
-const Button = ({ text, variant = "default", maxWidth = false} : ButtonProps) => {
+const Button = ({ children, variant = "default", maxWidth = false} : ButtonProps) => {
   // Classes applied for all buttons
   let className = "p-2 rounded transition-colors " + " ";
 
@@ -23,7 +23,9 @@ const Button = ({ text, variant = "default", maxWidth = false} : ButtonProps) =>
       break;
   }
 
-  return <button className={className}>{text}</button>;
+  return <button className={className}>
+    {children}
+  </button>;
 
 };
 

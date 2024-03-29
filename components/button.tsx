@@ -1,12 +1,17 @@
+"use client";
+
+import React from "react";
+
 interface ButtonProps {
   children: React.ReactNode;
   variant?: "default" | "outlined";
   maxWidth?: boolean;
+  onClick?: React.MouseEventHandler<HTMLButtonElement>;
 }
 
-const Button = ({ children, variant = "default", maxWidth = false} : ButtonProps) => {
+const Button = ({ children, variant = "default", maxWidth = false, onClick} : ButtonProps) => {
   // Classes applied for all buttons
-  let className = "p-2 rounded transition-colors " + " ";
+  let className = "p-2 rounded transition-colors flex justify-center items-center" + " ";
 
   // Set the button to full width if maxWidth is true
   if (maxWidth) {
@@ -23,7 +28,7 @@ const Button = ({ children, variant = "default", maxWidth = false} : ButtonProps
       break;
   }
 
-  return <button className={className}>
+  return <button className={className} onClick={onClick}>
     {children}
   </button>;
 

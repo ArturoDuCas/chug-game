@@ -1,10 +1,12 @@
 import RoomId from "@/components/room-id";
 import RoundsInput from "@/components/rounds-input";
 import SpecialButton from "@/components/special-button";
+import GoBack from "@/components/go-back";
 
 const Page = () => {
   return (
       <div className="w-full p-6 flex flex-col gap-4">
+        <GoBack />
         <RoomId rId="1234"/>
         <RoundsInput/>
         <SpecialButton text="Start Now 😈"/>

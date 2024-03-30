@@ -7,14 +7,31 @@ import { useToast } from "@/components/ui/use-toast"
 import {useState} from "react";
 import Spinner from "@/components/spinner";
 import {useRouter} from "next/navigation";
-import WelcomeCreateButton from "@/components/welcome-create-button";
 
 const WelcomeButtons = () => {
+  const { toast, dismiss } = useToast();
+  const router = useRouter()
+  const [isCreating, setIsCreating] = useState(false);
 
+  async function handleCreateClick() {
+    setIsCreating(true);
 
+    try {
+      const res = await createSession();
+      if(res.length === 0) throw "Couldn't create a session."
+      const session = res[0];
+      dismiss();
+      router.push(`/create${"?key=" + session.key}`);
+    } catch (err) {
+      toast({
+        title: "An error occurred 🥲",
+        description: "Please try again in a few minutes.",
+      });
+      console.log(err);
+    }
 
-
-
+    setIsCreating(false);
+  }
 
   return (
       <div className="w-full flex justify-around items-center gap-4">
@@ -23,10 +40,15 @@ const WelcomeButtons = () => {
             <span>Join</span>
           </Button>
         </Link>
-          <div className="relative">
-            <WelcomeCreateButton />
-          </div>
+        {/*<Link href={"/create"} className="flex-1">*/}
+        <Button variant="outlined" maxWidth onClick={handleCreateClick}>
+          {isCreating ? (
+              <Spinner />
+          ) : (
+              <span>Create</span>
+          )}
 
+        </Button>
         {/*</Link>*/}
       </div>
   );

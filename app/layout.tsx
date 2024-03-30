@@ -19,17 +19,14 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className={GeistSans.className}>
-    <body className="text-slate-50">
-    <div className="bg-gradient-to-r from-red-500 to-orange-500 fixed inset-0 z-0"></div>
-
-    <div
-        className="relative z-10 min-h-screen flex flex-col justify-center items-center"> {/* This div helps for the height of mobile devices */}
+      <body className="text-slate-50">
+      <div className="bg-gradient-to-r from-red-500 to-orange-500 absolute inset-0"> {/* This div helps for the height of mobile devices */}
         <main className="h-full flex flex-col justify-center items-center max-w-sm w-sm mx-auto">
-            {children}
+          {children}
         </main>
-        <Toaster/>
-    </div>
-    </body>
+        <Toaster />
+      </div>
+      </body>
     </html>
   );
 }

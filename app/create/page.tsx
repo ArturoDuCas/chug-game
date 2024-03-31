@@ -14,7 +14,9 @@ const Page = () => {
             <RoomId />
           </Suspense>
         <RoundsInput/>
-          <PlayersConnected />
+          <Suspense fallback={<Skeleton className="rounded w-full h-[100px]"></Skeleton>}>
+              <PlayersConnected />
+          </Suspense>
         <SpecialButton text="Start Now 😈"/>
 
       </div>

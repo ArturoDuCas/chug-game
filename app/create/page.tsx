@@ -4,6 +4,7 @@ import SpecialButton from "@/components/special-button";
 import GoBack from "@/components/go-back";
 import {Suspense} from "react";
 import {Skeleton} from "@/components/ui/skeleton";
+import PlayersConnected from "@/components/players-connected";
 
 const Page = () => {
   return (
@@ -13,6 +14,7 @@ const Page = () => {
             <RoomId />
           </Suspense>
         <RoundsInput/>
+          <PlayersConnected />
         <SpecialButton text="Start Now 😈"/>
 
       </div>

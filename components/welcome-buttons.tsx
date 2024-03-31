@@ -18,19 +18,19 @@ const WelcomeButtons = () => {
 
     try {
       const res = await createSession();
-      if(res.length === 0) throw "Couldn't create a session."
-      const session = res[0];
+      if(!res.success) throw "Couldn't create a session.";
       dismiss();
-      router.push(`/create${"?key=" + session.key}`);
+      router.push(`/create${"?key=" + res.data.session.key}`);
     } catch (err) {
       toast({
         title: "An error occurred 🥲",
         description: "Please try again in a few minutes.",
       });
       console.log(err);
+      setIsCreating(false);
     }
 
-    setIsCreating(false);
+
   }
 
   return (
